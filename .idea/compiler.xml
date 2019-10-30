@@ -6,11 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="quora-api" />
         <module name="quora-db" />
         <module name="quora-service" />
-        <module name="quora-api" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="quora" target="1.8" />
+      <module name="quora-api" target="1.8" />
+      <module name="quora-db" target="1.8" />
+      <module name="quora-service" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
