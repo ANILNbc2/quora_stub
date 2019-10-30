@@ -2,7 +2,6 @@ package com.upgrad.quora.service.business;
 
 import com.upgrad.quora.service.dao.AnswerDao;
 import com.upgrad.quora.service.entity.AnswerEntity;
-import com.upgrad.quora.service.entity.QuestionEntity;
 import com.upgrad.quora.service.entity.UserEntity;
 import com.upgrad.quora.service.exception.AnswerNotFoundException;
 import com.upgrad.quora.service.exception.AuthorizationFailedException;
@@ -35,7 +34,7 @@ public class AnswerService {
             );
         }
 
-        if(!answerEntity.getUserEntity().equals(user)){
+        if (!answerEntity.getUserEntity().getUuid().equals(user.getUuid())) {
             throw new AuthorizationFailedException(
                     "ATHR-003",
                     "Only the answer owner can edit the answer"
