@@ -41,4 +41,13 @@ public class QuestionService {
         return questionDao.getQuestion(questionUUID);
     }
 
+    public QuestionEntity getQuestionById(String questionUUID) throws InvalidQuestionException {
+        QuestionEntity questionEntity = questionDao.getQuestion(questionUUID);
+        if(questionEntity == null)
+        {
+            throw new InvalidQuestionException("QUES-001", "The question entered is invalid");
+        }
+        return questionEntity;
+    }
+
 }
