@@ -5,7 +5,6 @@ import com.upgrad.quora.api.model.AnswerResponse;
 import com.upgrad.quora.service.business.AnswerService;
 import com.upgrad.quora.service.business.AuthenticationService;
 import com.upgrad.quora.service.business.QuestionService;
-import com.upgrad.quora.service.dao.QuestionDao;
 import com.upgrad.quora.service.entity.AnswerEntity;
 import com.upgrad.quora.service.entity.QuestionEntity;
 import com.upgrad.quora.service.entity.UserAuthEntity;
@@ -39,7 +38,7 @@ public class AnswerController {
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<AnswerResponse> postAnswer(
             @RequestHeader("authorization") final String authorization,
-            @RequestHeader("questionId") final String questionId,
+            @PathVariable("questionId") final String questionId,
             final AnswerRequest answerRequest
     ) throws  AuthorizationFailedException,AuthenticationFailedException,InvalidQuestionException {
         String accessToken = authenticationService.getBearerAccessToken(authorization);
